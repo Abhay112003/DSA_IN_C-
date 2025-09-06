@@ -128,6 +128,25 @@ void DeleteEmployee()
     
    }
 }
+void SearchEmployee()
+{
+  int s,cnt=0;
+  Employee *ptr;
+  cout<<"Enter a Employee Id to Search";
+  cin>>s;
+  for(ptr=start;(ptr);ptr=ptr->next)
+  {
+     if(ptr->id==s)
+     {
+       cnt=1;
+       cout<<"Employee Found"<<endl;
+     }
+  }
+  if(cnt==0)
+  {
+  cout<<"Employee Not Found"<<endl;
+  }
+}
 int main()
 {
     start=endd=NULL;
@@ -137,8 +156,9 @@ int main()
       cout<<"Add a Employee :";
       cout<<"\n2.Show All Employee Data :";
       cout<<"\n3.Show All Employee Data in reverse";
-      cout<<"\n4.Delete a Employee :";
-      cout<<"\n5.Exit";
+      cout<<"\n4.Search Employee ";
+      cout<<"\n5.Delete a Employee :";
+      cout<<"\n6.Exit";
       cout<<"Select Your Choice :";
       cin>>ch;
       if(ch==1)
@@ -147,7 +167,9 @@ int main()
        ShowAllEmployee();
       else if(ch==3)
         ShowAllReverse();
-       else if(ch==4)
+      else if(ch==4)
+        SearchEmployee();
+       else if(ch==5)
        DeleteEmployee(); 
-    }while(ch!=5);
+    }while(ch!=6);
 } 
